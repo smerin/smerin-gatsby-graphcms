@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React from "react";
+import { Link } from "gatsby";
 
-const AllTagsTemplate = ({data, pageContext}) => {
+const AllTagsTemplate = ({ data, pageContext }) => {
   const { tags } = pageContext;
 
   return (
@@ -10,15 +10,13 @@ const AllTagsTemplate = ({data, pageContext}) => {
         {tags.map((tagName, index) => {
           return (
             <li key={index}>
-              <Link to={`/tags/${tagName}`}>
-                {tagName}
-              </Link>
+              <Link to={`/tags/${tagName}`}>{tagName}</Link>
             </li>
-          )
+          );
         })}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default AllTagsTemplate;
