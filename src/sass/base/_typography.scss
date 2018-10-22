@@ -1,0 +1,136 @@
+body {
+  @include font-smoothing(on);
+}
+
+@mixin paragraph {
+  font-size: 1rem;
+  line-height: $global-leading;
+  margin: 1.25rem 0;
+}
+
+@mixin smalltext {
+  font-size: 0.875rem;
+  line-height: $global-leading;
+}
+
+@mixin largetext {
+  font-size: 1.5rem;
+  line-height: $global-leading;
+}
+
+@mixin heading1 {
+  font-size: 2rem;
+  line-height: $global-leading * 0.8;
+  margin: 1.5rem 0;
+  font-weight: 700;
+
+  @include breakpoint(tablet) {
+    font-size: 3rem;
+    margin: 2rem 0;
+  }
+}
+
+@mixin heading2 {
+  font-size: 1.75rem;
+  line-height: $global-leading * 0.9;
+  margin: 1rem 0;
+  font-weight: 700;
+
+  @include breakpoint(tablet) {
+    font-size: 2.25rem;
+    margin: 1.25rem 0;
+  }
+}
+
+@mixin heading3 {
+  font-size: 1.5rem;
+  line-height: $global-leading;
+  margin: 1.25rem 0;
+  font-weight: 700;
+}
+
+@mixin heading4 {
+  font-size: 1.25rem;
+  line-height: $global-leading;
+  margin: 1rem 0;
+  font-weight: 700;
+}
+
+@mixin heading5 {
+  font-size: 1.125rem;
+  line-height: $global-leading;
+  margin: 1rem 0;
+  font-weight: 700;
+}
+
+@mixin heading6 {
+  font-size: 1rem;
+  line-height: $global-leading;
+  margin: 1rem 0;
+  font-weight: 700;
+}
+
+h1,
+.h1 {
+  @include heading1;
+  font-weight: 900;
+}
+h2,
+.h2 {
+  @include heading2;
+  font-weight: 900;
+}
+h3,
+.h3 {
+  @include heading3;
+  font-weight: 900;
+}
+h4,
+.h4 {
+  @include heading4;
+}
+h5,
+.h5 {
+  @include heading5;
+}
+h6,
+.h6 {
+  @include heading6;
+}
+p {
+  @include paragraph;
+}
+strong {
+  font-weight: 700;
+}
+.small-text {
+  @include smalltext;
+}
+.accent {
+  // color: $text-accent;
+}
+
+.note {
+  color: $grey;
+  @include paragraph;
+  font-weight: 400;
+}
+
+.title-group {
+  &__title {
+    margin-bottom: 0.25rem;
+  }
+  &__subtitle {
+    margin-top: 0;
+  }
+}
+
+.icon-text-group {
+  display: flex;
+  align-items: center;
+
+  .icon {
+    margin-right: 0.75rem;
+    font-size: 2rem;
+  }
+}

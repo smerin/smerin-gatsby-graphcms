@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+  font-size: $global-font-size;
+
+  @include breakpoint(desktop) {
+    font-size: 18px;
+  }
+}
+
+body {
+  overflow-y: scroll;
+
+  &.no-scroll {
+    position: fixed;
+    overflow-y: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-right: 15px;
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+input,
+select,
+button {
+  font-size: 1rem;
+  font-family: $font-family;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $mercury;
+  color: $charcoal;
+  font-family: $font-family;
+  line-height: $global-leading;
+}

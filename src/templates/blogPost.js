@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
 
 const Template = ({ data, pageContext }) => {
   const {
@@ -7,14 +8,20 @@ const Template = ({ data, pageContext }) => {
     frontmatter: { title }
   } = data.markdownRemark;
   const { next, prev } = pageContext;
-  console.log(next);
+
   return (
-    <div>
-      <h1>{title}</h1>
-      <div className="blogpost" dangerouslySetInnerHTML={{ __html: html }} />
-      {next && <Link to={next.frontmatter.path}>{next.frontmatter.title}</Link>}
-      {prev && <Link to={prev.frontmatter.path}>{prev.frontmatter.title}</Link>}
-    </div>
+    <Layout>
+      <div className="container">
+        <h1>{title}</h1>
+        <div className="blogpost" dangerouslySetInnerHTML={{ __html: html }} />
+        {next && (
+          <Link to={next.frontmatter.path}>{next.frontmatter.title}</Link>
+        )}
+        {prev && (
+          <Link to={prev.frontmatter.path}>{prev.frontmatter.title}</Link>
+        )}
+      </div>
+    </Layout>
   );
 };
 

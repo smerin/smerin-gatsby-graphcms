@@ -1,24 +1,27 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
+import MusicBanner from "../components/MusicBanner";
 
 const Music = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
 
   return (
     <Layout>
-      {edges.map(edge => {
-        const { frontmatter } = edge.node;
-        return (
-          <div key={frontmatter.path}>
-            <p>
+      <MusicBanner />
+
+      <div className="container">
+        {edges.map(edge => {
+          const { frontmatter } = edge.node;
+          return (
+            <div key={frontmatter.path}>
               <Link to={frontmatter.path}>{frontmatter.title}</Link>
-            </p>
-          </div>
-        );
-      })}
-      <div>
-        <Link to="/tags">Browse by tag</Link>
+            </div>
+          );
+        })}
+        <div>
+          <Link to="/tags">Browse by tag</Link>
+        </div>
       </div>
     </Layout>
   );

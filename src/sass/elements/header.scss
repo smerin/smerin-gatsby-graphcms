@@ -1,0 +1,27 @@
+.header {
+  padding: 1rem 0;
+  background: $charcoal;
+  color: $white;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  nav {
+    a {
+      font-size: 1.5rem;
+      padding: 0.5rem 2rem;
+      color: $white;
+
+      &[aria-current="page"] {
+        color: $pink;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.footer {
+  padding: 1rem 0;
+  background: $charcoal;
+  color: $white;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  p {
+    margin: 0;
+  }
+}

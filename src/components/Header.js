@@ -3,12 +3,16 @@ import { Link } from "gatsby";
 
 const Header = () => {
   return (
-    <div>
-      <h1>George Smerin</h1>
-      <nav>
-        <Link to="/music">Music</Link>
-        <Link to="/digital">Digital</Link>
-      </nav>
+    <div className="header">
+      <div className="container">
+        <div className="header__content">
+          <h1>George Smerin</h1>
+          <nav>
+            <Link to="/music">Music</Link>
+            <Link to="/digital">Digital</Link>
+          </nav>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,9 @@
+a {
+  color: $charcoal;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $dove;
+  }
+}

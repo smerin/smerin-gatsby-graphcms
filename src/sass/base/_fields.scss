@@ -1,0 +1,59 @@
+.input-field {
+  margin: 1.5rem 0;
+
+  label {
+    margin: 0.33rem 0;
+    font-size: 0.8rem;
+    color: $dove;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    margin: 0.33rem 0;
+    padding: 0.75rem 1rem;
+    outline: none;
+    border: 1px solid $silver;
+
+    &:focus {
+      border-color: $dove;
+    }
+  }
+
+  .input-container {
+    margin: 0.75rem 0 1.75rem;
+
+    label {
+      position: relative;
+
+      .password-toggle {
+        position: absolute;
+        top: 23px;
+        right: 0px;
+        display: inline-block;
+        min-width: 70px;
+        padding: 13px 15px;
+        background: $burgundy;
+        color: $white;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+
+    &.invalid {
+      input {
+        border-color: $burgundy;
+      }
+      .error-text {
+        color: $burgundy;
+      }
+    }
+    &.valid {
+      input {
+        border-color: $success;
+      }
+    }
+  }
+}

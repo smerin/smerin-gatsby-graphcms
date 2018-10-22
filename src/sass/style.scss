@@ -1,11 +1,17 @@
-body {
-  background: #666;
-  color: white;
-}
-a {
-  color: white;
-  text-decoration: none;
-}
-nav a {
-  margin-right: 10px;
-}
+@import "utilities/config";
+@import "utilities/colours";
+@import "utilities/mixins";
+@import "utilities/reset";
+
+@import "base/base";
+@import "base/fonts";
+@import "base/typography";
+@import "base/columns";
+@import "base/layout";
+@import "base/buttons";
+@import "base/links";
+@import "base/lists";
+@import "base/images";
+
+@import "elements/header";
+@import "elements/footer";
