@@ -2,7 +2,8 @@ import React from "react";
 import Layout from "../components/Layout";
 import DigitalBanner from "../components/DigitalBanner";
 
-const Digital = () => {
+const Digital = ({ data }) => {
+  console.log(data);
   return (
     <Layout>
       <DigitalBanner />
@@ -14,3 +15,13 @@ const Digital = () => {
 };
 
 export default Digital;
+
+export const pageQuery = graphql`
+  query HeaderImageQuery {
+    headerImage: imageSharp(id: { regex: "/lake/" }) {
+      sizes(maxWidth: 1240) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;

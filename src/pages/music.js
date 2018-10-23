@@ -5,7 +5,6 @@ import MusicBanner from "../components/MusicBanner";
 
 const Music = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
-
   return (
     <Layout>
       <MusicBanner />
