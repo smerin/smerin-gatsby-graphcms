@@ -1,15 +1,15 @@
 import React from "react";
 
-const MusicBanner = () => {
+const HomeBanner = () => {
   return (
-    <div className="banner banner--music">
+    <div className="banner banner--home">
       <div className="container">
         <div className="banner__content">
-          <h1>I play music</h1>
+          <h1>Welcome to my website</h1>
         </div>
       </div>
     </div>
   );
 };
 
-export default MusicBanner;
+export default HomeBanner;

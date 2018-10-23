@@ -12,6 +12,13 @@ module.exports = {
         name: "pages",
         path: `${__dirname}/src/pages`
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: "GTM-PKB2BF7",
+        includeInDevelopment: false
+      }
     }
   ]
 };

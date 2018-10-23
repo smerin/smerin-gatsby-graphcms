@@ -1,11 +1,14 @@
 import React from "react";
-// import { Link } from "gatsby";
 import Layout from "../components/Layout";
+import DigitalBanner from "../components/DigitalBanner";
 
 const Digital = () => {
   return (
     <Layout>
-      <p>Web dev and all that stuff...</p>
+      <DigitalBanner />
+      <div className="container">
+        <p>Web dev and all that stuff...</p>
+      </div>
     </Layout>
   );
 };

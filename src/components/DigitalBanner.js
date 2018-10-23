@@ -1,15 +1,15 @@
 import React from "react";
 
-const MusicBanner = () => {
+const DigitalBanner = () => {
   return (
-    <div className="banner banner--music">
+    <div className="banner banner--digital">
       <div className="container">
         <div className="banner__content">
-          <h1>I play music</h1>
+          <h1>I make websites</h1>
         </div>
       </div>
     </div>
   );
 };
 
-export default MusicBanner;
+export default DigitalBanner;
