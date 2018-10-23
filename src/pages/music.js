@@ -1,13 +1,14 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import MusicBanner from "../components/MusicBanner";
+import Banner from "../components/Banner";
+// import { fluidImage } from "../fragments";
 
 const Music = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
-      <MusicBanner />
+      <Banner bannerImage={data.bannerImage} title="I play music" />
 
       <div className="container">
         {edges.map(edge => {
@@ -26,8 +27,11 @@ const Music = ({ data }) => {
   );
 };
 
-export const BlogPostQuery = graphql`
-  query BlogPostQuery {
+export const musicPageQuery = graphql`
+  query musicPageQuery {
+    bannerImage: file(relativePath: { eq: "guitar.jpg" }) {
+      ...fluidImage
+    }
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {

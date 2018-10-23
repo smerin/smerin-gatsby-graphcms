@@ -1,30 +1,45 @@
 .header {
-  padding: 1rem 0;
-  background: $charcoal;
-  color: $white;
+  background: $white;
+  color: $charcoal;
+  height: 6rem;
 
   &__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   a {
-    color: $white;
+    color: $charcoal;
 
     &:hover {
       color: $silver;
     }
   }
 
-  h1 {
-    font-size: 2rem;
-    margin: 0;
+  &__logo {
+    position: absolute;
+    z-index: 10;
+    width: 8rem;
+    height: 8rem;
   }
+
   nav {
+    height: 6rem;
+    display: flex;
+    justify-content: flex-end;
+
     a {
+      display: flex;
+      align-items: center;
+      height: 6rem;
+      padding: 1rem 2rem;
       font-size: 1.5rem;
-      padding: 0.5rem 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: $charcoal;
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: $pink;
+      }
 
       &[aria-current="page"] {
         color: $pink;

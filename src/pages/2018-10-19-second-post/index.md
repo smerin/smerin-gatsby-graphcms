@@ -4,6 +4,7 @@ date: "2018-10-19"
 title: "My second post"
 tags: ['tech', 'travel']
 excerpt: "A preview of my second post"
+banner: 'desk.jpg'
 ---
 
 Lorem ipsum dolor amet pabst lyft 8-bit chillwave flexitarian, heirloom tumeric locavore lumbersexual gentrify meggings offal. Everyday carry air plant man braid four dollar toast tbh. Chicharrones microdosing echo park cold-pressed messenger bag man bun 8-bit literally readymade gochujang. Polaroid vaporware mixtape, salvia selfies skateboard hammock fashion axe ennui freegan.

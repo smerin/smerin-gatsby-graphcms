@@ -1,11 +1,13 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import HomeBanner from "../components/HomeBanner";
+import Banner from "../components/Banner";
+// import { fluidImage } from "../fragments";
 
-const Home = () => {
+const Home = ({ data }) => {
   return (
     <Layout>
-      <HomeBanner />
+      <Banner bannerImage={data.bannerImage} title="Welcome to my website" />
       <div className="container">
         <p>Homepage stuff here</p>
       </div>
@@ -14,3 +16,11 @@ const Home = () => {
 };
 
 export default Home;
+
+export const homePageQuery = graphql`
+  query homePageQuery {
+    bannerImage: file(relativePath: { eq: "lake.jpg" }) {
+      ...fluidImage
+    }
+  }
+`;

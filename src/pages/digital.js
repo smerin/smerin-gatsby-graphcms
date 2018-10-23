@@ -1,12 +1,13 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import DigitalBanner from "../components/DigitalBanner";
+import Banner from "../components/Banner";
+// import { fluidImage } from "../fragments";
 
 const Digital = ({ data }) => {
-  console.log(data);
   return (
     <Layout>
-      <DigitalBanner />
+      <Banner bannerImage={data.bannerImage} title="I make websites" />
       <div className="container">
         <p>Web dev and all that stuff...</p>
       </div>
@@ -16,12 +17,10 @@ const Digital = ({ data }) => {
 
 export default Digital;
 
-export const pageQuery = graphql`
-  query HeaderImageQuery {
-    headerImage: imageSharp(id: { regex: "/lake/" }) {
-      sizes(maxWidth: 1240) {
-        ...GatsbyImageSharpSizes
-      }
+export const digitalPageQuery = graphql`
+  query digitalPageQuery {
+    bannerImage: file(relativePath: { eq: "desk.jpg" }) {
+      ...fluidImage
     }
   }
 `;
