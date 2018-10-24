@@ -13,6 +13,7 @@ Keffiyeh XOXO ugh, adaptogen flannel small batch hammock master cleanse tousled 
 
 Kombucha man bun kale chips pickled small batch taxidermy. Hell of wayfarers tumblr iPhone church-key, literally cronut artisan listicle keytar sustainable chartreuse blue bottle vexillologist truffaut. Banjo synth swag blue bottle tumblr. Keytar deep v pitchfork ethical bitters flannel waistcoat knausgaard forage.
 
-![Cool image][logo]
-
-[logo]: ./src/static/lake.jpg "Logo Title Text 2"
+<figure>
+  <img src="./lake.jpg" alt="Lake" />
+  <figcaption>Real nice lake!</figcaption>
+</figure>
