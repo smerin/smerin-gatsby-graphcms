@@ -5,7 +5,6 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-sass",
-    "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
@@ -27,6 +26,19 @@ module.exports = {
       options: {
         id: "GTM-PKB2BF7",
         includeInDevelopment: false
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 780
+            }
+          }
+        ]
       }
     }
   ]
