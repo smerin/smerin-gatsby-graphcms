@@ -1,13 +1,19 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import Banner from "../components/Banner";
 // import { fluidImage } from "../fragments";
 
-const Music = ({ data }) => {
+const Music = ({ data, location }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
+      <SEO
+        title="Guitarist and kora player"
+        description="I play music from around the world"
+        pathname={location.pathname}
+      />
       <Banner bannerImage={data.bannerImage} title="I play music" />
 
       <div className="container">

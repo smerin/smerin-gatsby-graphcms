@@ -1,7 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "My blog",
-    description: "This is my cool blog"
+    title: "Standard title",
+    titleTemplate: "%s | GS",
+    description: "This is my cool blog",
+    url: "https://agitated-torvalds-2fddae.netlify.com",
+    image: "/images/george.jpg",
+    twitterUsername: "@georgesmerin"
   },
   plugins: [
     "gatsby-plugin-sass",

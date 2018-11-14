@@ -1,16 +1,25 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import SEO from "../components/SEO";
+
 import Layout from "../components/Layout";
 
 const Template = ({ data, pageContext }) => {
   const {
     html,
-    frontmatter: { title }
+    frontmatter: { title, description, excerpt, image }
   } = data.markdownRemark;
-  const { next, prev } = pageContext;
+  const { next, prev, pathSlug } = pageContext;
 
   return (
     <Layout>
+      <SEO
+        title={title}
+        description={description || excerpt || ""}
+        image={image.childImageSharp.sizes.src}
+        pathname={pathSlug}
+        article
+      />
       <div className="container">
         <h1>{title}</h1>
         <div className="blogpost" dangerouslySetInnerHTML={{ __html: html }} />
@@ -31,6 +40,15 @@ export const query = graphql`
       html
       frontmatter {
         title
+        description
+        excerpt
+        image {
+          childImageSharp {
+            sizes(maxWidth: 1200) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
