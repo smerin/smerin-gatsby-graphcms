@@ -18,8 +18,8 @@ const Header = () => {
             </Link>
           </div>
           <nav>
-            <Link to="/music">Music</Link>
-            <Link to="/digital">Digital</Link>
+            <Link to="/music/">Music</Link>
+            <Link to="/digital/">Digital</Link>
           </nav>
         </div>
       </div>
