@@ -30,6 +30,7 @@ const SEO = ({ title, description, image, pathname, article }) => (
           <Helmet title={seo.title} titleTemplate={titleTemplate}>
             <meta name="description" content={seo.description} />
             <meta name="image" content={seo.image} />
+            <meta name="fb:app_id" content={process.env.FB_APP_ID} />
 
             {/* Open Graph data */}
             {seo.title && <meta property="og:title" content={seo.title} />}
