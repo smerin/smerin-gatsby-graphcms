@@ -4,12 +4,12 @@ import SEO from "../components/SEO";
 
 import Layout from "../components/Layout";
 
-const Template = ({ data, pageContext }) => {
+const Template = ({ data, pageContext, location: { pathname } }) => {
   const {
     html,
     frontmatter: { title, description, excerpt, image }
   } = data.markdownRemark;
-  const { next, prev, pathSlug } = pageContext;
+  const { next, prev } = pageContext;
 
   return (
     <Layout>
@@ -17,7 +17,7 @@ const Template = ({ data, pageContext }) => {
         title={title}
         description={description || excerpt || ""}
         image={image.childImageSharp.sizes.src}
-        pathname={pathSlug}
+        pathname={pathname}
         article
       />
       <div className="container">
