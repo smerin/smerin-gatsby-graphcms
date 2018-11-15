@@ -4,7 +4,7 @@ date: "2018-10-19"
 title: "My second post"
 description: "A preview of my second post"
 tags: ['tech', 'travel']
-excerpt: "A preview of my second post"
+excerpt: "An excerpt of my first post for use on the home page and also in open graph description. Lorem ipsum dolor amet pabst lyft 8bit chillwave flexitarian, heirloom tumeric locavore. Chicharrones microdosing echo park cold-pressed messenger bag man bun 8-bit literally readymade gochujang. 300 characters."
 banner: 'desk.jpg'
 image: 'image.png'
 ---

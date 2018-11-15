@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, image, pathname, article }) => (
+const SEO = ({ title, description, excerpt, image, pathname, article }) => (
   <StaticQuery
     query={query}
     render={({
@@ -21,6 +21,7 @@ const SEO = ({ title, description, image, pathname, article }) => (
       const seo = {
         title: title || defaultTitle,
         description: description || defaultDescription,
+        excerpt: excerpt || defaultDescription,
         image: `${siteUrl}${image || defaultImage}`,
         url: `${siteUrl}${pathname || "/"}`
       };
@@ -28,6 +29,7 @@ const SEO = ({ title, description, image, pathname, article }) => (
       return (
         <>
           <Helmet title={seo.title} titleTemplate={titleTemplate}>
+            <link rel="canonical" href={seo.url} />
             <meta name="description" content={seo.description} />
             <meta name="image" content={seo.image} />
             <meta property="fb:app_id" content={process.env.FB_APP_ID} />
@@ -39,15 +41,15 @@ const SEO = ({ title, description, image, pathname, article }) => (
             )}
             {seo.url && <meta property="og:url" content={seo.url} />}
             {seo.image && <meta property="og:image" content={seo.image} />}
-            {seo.description && (
-              <meta property="og:description" content={seo.description} />
+            {seo.excerpt && (
+              <meta property="og:description" content={seo.excerpt} />
             )}
 
             {/* Twitter Card data */}
             <meta name="twitter:card" content="summary_large_image" />
             {seo.title && <meta name="twitter:title" content={seo.title} />}
-            {seo.description && (
-              <meta name="twitter:description" content={seo.description} />
+            {seo.excerpt && (
+              <meta name="twitter:description" content={seo.excerpt} />
             )}
             {twitterUsername && (
               <meta name="twitter:creator" content={twitterUsername} />

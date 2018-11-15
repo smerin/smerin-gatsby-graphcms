@@ -16,6 +16,7 @@ const Template = ({ data, pageContext, location: { pathname } }) => {
       <SEO
         title={title}
         description={description || excerpt || ""}
+        excerpt={excerpt || description || ""}
         image={image.childImageSharp.sizes.src}
         pathname={pathname}
         article

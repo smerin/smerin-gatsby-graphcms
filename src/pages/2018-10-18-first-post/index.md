@@ -2,9 +2,9 @@
 path: "/first-post/"
 date: "2018-10-18"
 title: "My first post"
-description: "A preview of my first post"
+description: "A preview of my first post used in the meta description"
 tags: ['music', 'travel']
-excerpt: "A preview of my first post"
+excerpt: "An excerpt of my first post for use on the home page and also in open graph description. Lorem ipsum dolor amet pabst lyft 8bit chillwave flexitarian, heirloom tumeric locavore. Chicharrones microdosing echo park cold-pressed messenger bag man bun 8-bit literally readymade gochujang. 300 characters."
 banner: 'desk.jpg'
 image: 'image.png'
 ---
