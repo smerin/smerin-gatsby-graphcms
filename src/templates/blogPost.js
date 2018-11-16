@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/SEO";
-
 import Layout from "../components/Layout";
 
 const Template = ({ data, pageContext, location: { pathname } }) => {

@@ -3,10 +3,10 @@ path: "/first-post/"
 date: "2018-10-18"
 title: "My first post"
 description: "A preview of my first post used in the meta description"
-tags: ['music', 'travel']
+tags: ["music", "travel"]
 excerpt: "An excerpt of my first post for use on the home page and also in open graph description. Lorem ipsum dolor amet pabst lyft 8bit chillwave flexitarian, heirloom tumeric locavore. Chicharrones microdosing echo park cold-pressed messenger bag man bun 8-bit literally readymade gochujang. 300 characters."
-banner: 'desk.jpg'
-image: 'guitar-300.jpg'
+banner: "lake.jpg"
+image: "guitar-300.jpg"
 ---
 
 Lorem ipsum dolor amet pabst lyft 8-bit chillwave flexitarian, heirloom tumeric locavore lumbersexual gentrify meggings offal. Everyday carry air plant man braid four dollar toast tbh. Chicharrones microdosing echo park cold-pressed messenger bag man bun 8-bit literally readymade gochujang. Polaroid vaporware mixtape, salvia selfies skateboard hammock fashion axe ennui freegan.
