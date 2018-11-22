@@ -8,10 +8,25 @@ import Banner from "../components/Banner";
 const Home = ({ data }) => {
   return (
     <Layout>
-      <SEO />
-      <Banner bannerImage={data.bannerImage} title="Welcome to my website" />
-      <div className="container">
-        <p>Homepage stuff here</p>
+      <SEO
+        title="George Smerin | Musician and web developer"
+        titleTemplate="%s"
+        description="Welcome to the home page of George Smerin, musician and web developer from Bristol (UK)."
+      />
+      <div className="home">
+        <div className="home__banner" />
+        <div className="container">
+          <h1>Hi, I'm George Smerin!</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
       </div>
     </Layout>
   );

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Standard title",
-    titleTemplate: "%s | GS",
+    titleTemplate: "%s | George Smerin",
     description: "This is my cool blog",
     url: "https://agitated-torvalds-2fddae.netlify.com",
     image: "/images/george.jpg",
