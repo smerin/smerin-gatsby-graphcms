@@ -1,46 +1,49 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
-import Banner from "../components/Banner";
 
-const Blog = ({ data, location }) => {
-  const { edges } = data.allMarkdownRemark;
-  return (
-    <Layout>
-      <SEO
-        title="Diaries of a music addict"
-        description="I'm always searching for interesting music from around the world"
-        pathname={location.pathname}
-      />
+const Blog = () => (
+  <StaticQuery
+    query={blogPostQuery}
+    render={({ gcms: { blogs } }) => {
+      return (
+        <Layout>
+          <SEO
+            title="Diaries of a music addict"
+            description="I'm always searching for interesting music from around the world"
+            pathname="/blog"
+          />
 
-      <div className="container">
-        {edges.map(edge => {
-          const { frontmatter } = edge.node;
-          return (
-            <div key={frontmatter.path}>
-              <Link to={frontmatter.path}>{frontmatter.title}</Link>
+          <div className="container">
+            {blogs.map((blog, index) => {
+              console.log(blog);
+              return (
+                <div key={index}>
+                  <Link to={blog.pathname}>{blog.title}</Link>
+                  <img src={blog.banner.url} alt={blog.title} />
+                </div>
+              );
+            })}
+            <div>
+              <Link to="/tags">Browse by tag</Link>
             </div>
-          );
-        })}
-        <div>
-          <Link to="/tags">Browse by tag</Link>
-        </div>
-      </div>
-    </Layout>
-  );
-};
+          </div>
+        </Layout>
+      );
+    }}
+  />
+);
 
 export const blogPostQuery = graphql`
   query blogPostQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            path
-            date
-          }
+    gcms {
+      blogs(orderBy: date_DESC) {
+        date
+        pathname
+        title
+        banner {
+          url
         }
       }
     }

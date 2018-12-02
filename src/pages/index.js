@@ -8,7 +8,10 @@ const Home = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <Layout>
-      <SEO />
+      <SEO
+        title="George Smerin | Musician and web developer"
+        titleTemplate="%s"
+      />
       <div className="container">
         <div className="posts">
           {edges.map(edge => {
@@ -17,7 +20,7 @@ const Home = ({ data }) => {
             } = edge.node;
             console.log(banner);
             return (
-              <div key={path} class="posts__item">
+              <div key={path} className="posts__item">
                 <Link to={path}>
                   <h2>{title}</h2>
                 </Link>

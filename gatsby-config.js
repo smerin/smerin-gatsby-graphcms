@@ -13,6 +13,15 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GCMS",
+        fieldName: "gcms",
+        url:
+          "https://api-euwest.graphcms.com/v1/cjp6mu0pz871t01ghp77ep4es/master"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
