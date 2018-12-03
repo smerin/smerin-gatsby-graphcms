@@ -8,7 +8,6 @@ const Template = ({ data, pageContext, location: { pathname } }) => {
     <StaticQuery
       query={query}
       render={({ gcms: { blog } }) => {
-        console.log(blog.tags[1]);
         return (
           <Layout>
             <SEO
@@ -22,7 +21,7 @@ const Template = ({ data, pageContext, location: { pathname } }) => {
               <h1>{blog.title}</h1>
               <div dangerouslySetInnerHTML={{ __html: blog.content }} />
 
-              <ul>{blog.tags.map(tag => <li>{tag}</li>)}</ul>
+              <ul>{/*blog.tags.map(tag => <li>{tag}</li>)*/}</ul>
             </div>
           </Layout>
         );
@@ -62,9 +61,9 @@ const { next, prev } = pageContext;
 */
 
 export const query = graphql`
-  query {
+  query($path: String!) {
     gcms {
-      blog(where: { pathname: "watcha-jola-akonting-kamele-ngoni" }) {
+      blog(where: { pathname: $path }) {
         date
         pathname
         title
