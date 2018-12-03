@@ -53,39 +53,37 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           query {
-            allMarkdownRemark(
-              sort: { order: ASC, fields: [frontmatter___date] }
-            ) {
-              edges {
-                node {
-                  frontmatter {
-                    path
-                    title
-                    tags
-                  }
-                }
+            gcms {
+              blogs {
+                pathname
+                tags
               }
             }
           }
         `
       ).then(result => {
-        const posts = result.data.allMarkdownRemark.edges;
+        if (result.errors) {
+          reject(result.errors);
+        }
 
-        createTagPages(createPage, posts);
+        const posts = result.data.gcms.blogs;
+        console.log(posts);
 
-        posts.forEach(({ node }, index) => {
-          const { path } = node.frontmatter;
+        // createTagPages(createPage, posts);
+
+        posts.forEach((blog, index) => {
           createPage({
-            path,
+            path: blog.pathname,
             component: blogPostTemplate,
             context: {
-              pathSlug: path,
-              prev: index === 0 ? null : posts[index - 1].node,
-              next: index === posts.length - 1 ? null : posts[index + 1].node
+              pathSlug: blog.pathname,
+              prev: index === 0 ? null : posts[index - 1],
+              next: index === posts.length - 1 ? null : posts[index + 1]
             }
           });
           resolve();
         });
+        resolve();
       })
     );
   });
