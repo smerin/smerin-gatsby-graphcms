@@ -2,17 +2,17 @@ import React from "react";
 import { Link } from "gatsby";
 
 const SingleTagTemplate = ({ data, pageContext }) => {
-  const { posts, tagName } = pageContext;
+  const { blogs, tagName } = pageContext;
 
   return (
     <div>
       <div>Posts about {tagName}</div>
       <div>
         <ul>
-          {posts.map((post, index) => {
+          {blogs.map((blog, index) => {
             return (
               <li key={index}>
-                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+                <Link to={blog.pathname}>{blog.title}</Link>
               </li>
             );
           })}

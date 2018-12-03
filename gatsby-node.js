@@ -1,25 +1,25 @@
 const path = require("path");
 
-const createTagPages = (createPage, posts) => {
+const createTagPages = (createPage, blogs) => {
   const allTagsIndexTemplate = path.resolve("src/templates/allTagsIndex.js");
   const singleTagIndexTemplate = path.resolve(
     "src/templates/singleTagIndex.js"
   );
 
-  const postsByTag = {};
+  const blogsByTag = {};
 
-  posts.forEach(({ node }) => {
-    if (node.frontmatter.tags) {
-      node.frontmatter.tags.forEach(tag => {
-        if (!postsByTag[tag]) {
-          postsByTag[tag] = [];
+  blogs.forEach((blog, index) => {
+    if (blog.tags) {
+      blog.tags.forEach(tag => {
+        if (!blogsByTag[tag]) {
+          blogsByTag[tag] = [];
         }
-        postsByTag[tag].push(node);
+        blogsByTag[tag].push(blog);
       });
     }
   });
 
-  const tags = Object.keys(postsByTag);
+  const tags = Object.keys(blogsByTag);
 
   createPage({
     path: "/tags",
@@ -30,13 +30,13 @@ const createTagPages = (createPage, posts) => {
   });
 
   tags.forEach(tagName => {
-    const posts = postsByTag[tagName];
+    const blogs = blogsByTag[tagName];
 
     createPage({
       path: `/tags/${tagName}`,
       component: singleTagIndexTemplate,
       context: {
-        posts,
+        blogs,
         tagName
       }
     });
@@ -56,6 +56,7 @@ exports.createPages = ({ graphql, actions }) => {
             gcms {
               blogs {
                 pathname
+                title
                 tags
               }
             }
@@ -66,19 +67,18 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        const posts = result.data.gcms.blogs;
-        console.log(posts);
+        const { blogs } = result.data.gcms;
 
-        // createTagPages(createPage, posts);
+        createTagPages(createPage, blogs);
 
-        posts.forEach((blog, index) => {
+        blogs.forEach((blog, index) => {
           createPage({
             path: blog.pathname,
             component: blogPostTemplate,
             context: {
               pathSlug: blog.pathname,
-              prev: index === 0 ? null : posts[index - 1],
-              next: index === posts.length - 1 ? null : posts[index + 1]
+              prev: index === 0 ? null : blogs[index - 1],
+              next: index === blogs.length - 1 ? null : blogs[index + 1]
             }
           });
           resolve();
