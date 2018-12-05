@@ -44,6 +44,7 @@ const createTagPages = (createPage, blogs) => {
 };
 
 exports.createPages = ({ graphql, actions }) => {
+  console.log("creating pages...");
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
@@ -58,6 +59,9 @@ exports.createPages = ({ graphql, actions }) => {
                 pathname
                 title
                 tags
+                banner {
+                  url
+                }
               }
             }
           }
@@ -83,8 +87,16 @@ exports.createPages = ({ graphql, actions }) => {
           });
           resolve();
         });
+
         resolve();
       })
     );
   });
+};
+
+exports.onCreateNode = props => {
+  if (props.node.typeName === "GCMS") {
+    // console.log(props.getNodes());
+    console.log("creating nodes...");
+  }
 };
