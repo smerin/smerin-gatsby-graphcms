@@ -39,8 +39,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 
 
 exports.onCreateNode = async props => {
-
-  if (props.node && props.node.internal.type !== "BannerImage") {
+  if (!props.node || props.node.internal.type !== "BannerImage") {
     return;
   }
 
@@ -56,7 +55,7 @@ exports.onCreateNode = async props => {
   });
 
   if (fileNode) {
-    props.node.image___NODE = fileNode.id
+    node.image___NODE = fileNode.id
   }
 };
 
@@ -105,7 +104,6 @@ const createTagPages = (createPage, blogs) => {
 };
 
 exports.createPages = ({ graphql, actions }) => {
-  console.log("creating pages...");
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
@@ -123,7 +121,6 @@ exports.createPages = ({ graphql, actions }) => {
                 banner {
                   url
                   fileName
-                  mimeType
                 }
               }
             }

@@ -8,7 +8,6 @@ import Layout from "../components/Layout";
 const Template = ({ data, pageContext }) => {
   const { blog } = data.gcms;
   const { next, prev } = pageContext;
-  console.log(data.bannerImage);
 
   return (
     <Layout>

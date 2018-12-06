@@ -1,12 +1,14 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
+import Img from "gatsby-image";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 
 const Blog = () => (
   <StaticQuery
     query={blogPostQuery}
-    render={({ gcms: { blogs } }) => {
+    render={({ gcms: { blogs }, allBannerImage }) => {
+
       return (
         <Layout>
           <SEO
@@ -17,11 +19,14 @@ const Blog = () => (
 
           <div className="container">
             {blogs.map((blog, index) => {
-              console.log(blog);
+              const bannerMatch = allBannerImage.edges.filter(edge => edge.node.fileName === blog.banner.fileName);
+              const bannerFluid = bannerMatch ? bannerMatch[0].node.image.childImageSharp.fluid : null;
               return (
                 <div key={index}>
                   <Link to={blog.pathname}>{blog.title}</Link>
-                  <img src={blog.banner.url} alt={blog.title} />
+                  {bannerFluid && (
+                    <Img fluid={bannerFluid} />
+                  )}
                 </div>
               );
             })}
@@ -44,6 +49,21 @@ export const blogPostQuery = graphql`
         title
         banner {
           url
+          fileName
+        }
+      }
+    }
+    allBannerImage {
+      edges {
+        node {
+          fileName
+          image {
+            childImageSharp {
+              fluid(maxWidth: 1000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
